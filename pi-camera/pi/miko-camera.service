@@ -1,0 +1,18 @@
+# starts stream.py every time the pi boots, so nobody has to ssh in first
+# install steps are in SETUP.md, step 7
+# change User and the two paths if your pi user is not called hugo
+
+[Unit]
+Description=Miko camera stream
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=hugo
+WorkingDirectory=/home/hugo/pi-camera/pi
+ExecStart=/usr/bin/python3 /home/hugo/pi-camera/pi/stream.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
