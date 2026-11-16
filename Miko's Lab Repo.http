@@ -1,0 +1,6 @@
+@Miko_s_Lab_Repo_HostAddress = http://localhost:5067
+
+GET {{Miko_s_Lab_Repo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
