@@ -88,11 +88,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marko\\Documents\\Visual Studio Code\\Miko's Lab Repo\\Miko's Lab Repo.csproj",
+      "projectUniqueName": "C:\\Users\\marko\\Documents\\Visual Studio Code\\Miko's Lab Repo\\EN14-C3\\Miko's Lab Repo.csproj",
       "projectName": "Miko's Lab Repo",
-      "projectPath": "C:\\Users\\marko\\Documents\\Visual Studio Code\\Miko's Lab Repo\\Miko's Lab Repo.csproj",
+      "projectPath": "C:\\Users\\marko\\Documents\\Visual Studio Code\\Miko's Lab Repo\\EN14-C3\\Miko's Lab Repo.csproj",
       "packagesPath": "C:\\Users\\marko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marko\\Documents\\Visual Studio Code\\Miko's Lab Repo\\obj\\",
+      "outputPath": "C:\\Users\\marko\\Documents\\Visual Studio Code\\Miko's Lab Repo\\EN14-C3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\marko\\AppData\\Roaming\\NuGet\\NuGet.Config"
