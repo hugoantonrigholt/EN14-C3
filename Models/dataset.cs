@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Mikos_Lab.Models
 {
+    [Index(nameof(UserId),(nameof(Name)), IsUnique = true)]
     public partial class Dataset
     {
         public int DatasetId{ get; set; }

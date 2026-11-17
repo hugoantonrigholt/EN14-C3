@@ -7,11 +7,12 @@ namespace Mikos_Lab.Models
         public int X{ get; set; }
         public int Y{ get; set; }
         public int Radius{ get; set; }
-        public int FoundBy{ get; set; }
-        public int? Labelled{ get; set; }
+        public FoundBy FoundBy{ get; set; }
+        public int? LabelId{ get; set; }
         public DateTime? LabelledAt{ get; set; }
 
         public Photo Photo { get; set; } = null!; 
+        public Label Label { get; set; } = null!;
 
         public ICollection<Prediction> Predictions { get; set; } = new List<Prediction>();
         
