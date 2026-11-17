@@ -1,5 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Mikos_Lab.Models
+
 {
+    [Index(nameof(Username), IsUnique = true)]
+
     public partial class User
     {
         public int UserId{ get; set; }

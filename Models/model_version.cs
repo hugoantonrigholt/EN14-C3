@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 namespace Mikos_Lab.Models
 {
+    [Index(nameof(DatasetId),nameof(VersionNo), IsUnique = true)]
     public partial class ModelVersion
     {
         public int ModelVersionId{ get; set; }

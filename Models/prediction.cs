@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 namespace Mikos_Lab.Models
 {
+    [PrimaryKey(nameof(MeasurementId), nameof(CellId))]
     public partial class Prediction
     {
         public int MeasurementId{ get; set; }
