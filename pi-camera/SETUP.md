@@ -92,6 +92,8 @@ python3 stream.py
 
 When it says `Running on http://...:8000`, open **http://miko.local:8000** in the laptop's browser. Stop it with `Ctrl+C`.
 
+Check the focus bar: point the camera at a plain bright area and click **Lock light**. Then point it at something with text and turn its lens (or the focus wheel) slowly one way and back. The bar should rise, peak and fall, and say "sharp, take the photo" once you are back at the peak. Click **New sample** when you point it at something else.
+
 ## 7. Start it automatically when the Pi boots (optional)
 
 Then nobody has to ssh in before using the camera: plug in the Pi, wait a minute, open the page. If your username is not `hugo`, first change `User` and the two paths in `pi/miko-camera.service`.
@@ -117,6 +119,7 @@ Wait until the green light stops blinking, then pull the power.
 |---|---|---|
 | Imager says the SD card is read only | Lock slider on the adapter is down | Push it up, towards the contacts |
 | `Could not resolve hostname miko.local` | The laptop is on eduroam, or the Pi has not joined the hotspot | Put the laptop on the hotspot. Count the devices on the hotspot screen: if the Pi never shows up, the Wi-Fi name or password on the card is wrong (often the apostrophe), so flash again |
+| Worked before, now `Could not resolve hostname miko.local`, and the hotspot shows only the laptop | The Pi dropped off (restart, power blip) and an iPhone hides its hotspot when nothing is connected, so the Pi can't find it again | Open **Settings > Personal Hotspot** on the iPhone and keep that screen open, then unplug the Pi and plug it back in. Wait 1 to 2 minutes |
 | `Connection refused` | The Pi is still starting | Wait a minute and try again |
 | `REMOTE HOST IDENTIFICATION HAS CHANGED` | The card was flashed again, so the Pi has a new key | `ssh-keygen -R miko.local`, then ssh again |
 | "See http://rptl.io/newuser" and every password is refused | The Pi has no user: the User page in Imager was skipped | Flash again and fill in the User page |
@@ -125,4 +128,9 @@ Wait until the green light stops blinking, then pull the power.
 | Picture is pink or purple | It is the **NoIR** camera, which has no infrared filter | Normal. Under Miko's own LED it looks right |
 | Picture is only blur | Lens is off, or the object is too close | Lens on for testing, point at something further away |
 | Stream lags | Big frames over the hotspot | In `pi/stream.py`, set `STREAM_SIZE = (820, 616)` |
+| Focus bar stays empty, `/info` says `"ok": false` | The camera stopped giving frames, or the server is still starting | Wait 10 seconds. If it stays, restart the server and check the ribbon |
+| `RuntimeError` or `FileNotFoundError` about `imx219_noir.json` at start | The tuning file isn't where Picamera2 looks | Check with `ls /usr/share/libcamera/ipa/rpi/vc4/`. Update with `sudo apt update && sudo apt full-upgrade` |
+| Lock light takes long, picture still dark | Not enough light to reach the target in one frame time, so it turns up the gain | Turn up the LED or check it's on, then lock again |
+| Bar jumps around without touching anything | Dim picture, so the camera turns up the gain and the noise looks like edges | More light, then **Lock light** |
+| `"throttled": true` in `/info` | The power supply is too weak or the Pi is too hot | Use the official 5 V 3 A supply, give the Pi air |
 | `Address already in use` | Another `stream.py` or the service is already running | `pkill -f stream.py`, or `sudo systemctl stop miko-camera` |
