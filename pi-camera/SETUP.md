@@ -1,6 +1,6 @@
 # Setting up the Raspberry Pi for Miko's camera
 
-This guide takes the Raspberry Pi 4 and the Pi Camera V2 from the box to a live picture in the laptop's browser. It was tested on 16 Nov 2026; every problem we ran into that day is in the steps and in the table at the end.
+This guide takes the Raspberry Pi 4 and the Pi Camera V2 from the box to a live picture in the laptop's browser. It was tested on 16 and 17 Nov 2026; every problem we ran into is in the steps and in the table at the end.
 
 ## What you need
 
@@ -31,7 +31,7 @@ This wipes the card. You do not have to delete anything first: Imager overwrites
 4. Choose to customise the settings and go through **every page**:
    - Hostname: `miko`
    - **User: a username and password. Do not skip this page.** Without it the Pi has no user and refuses every password.
-   - Wi-Fi: the hotspot name exactly as the phone shows it, its password, country `NL`
+   - Wi-Fi: the hotspot name exactly as the phone shows it, its password, country `NL`. If you rename the phone later, the Pi keeps looking for the old name and you have to flash again
    - Remote access: **SSH on**, with password login
 5. Write the card. If Windows asks to format a disk while it writes or afterwards, click **Cancel**: that is the Linux part of the card.
 
@@ -113,6 +113,8 @@ sudo shutdown now
 
 Wait until the green light stops blinking, then pull the power.
 
+**Never pull the power while the green light blinks.** The Pi is writing to the SD card then, and a cut can damage the card so the Pi no longer starts (red light only, no green). It happened on 17 November: the only fix was flashing the card again and doing steps 4 to 6 over. After a new flash, the laptop warns that the Pi's identity changed; see the table below.
+
 ## When something goes wrong
 
 | What you see | Cause | Fix |
@@ -121,7 +123,8 @@ Wait until the green light stops blinking, then pull the power.
 | `Could not resolve hostname miko.local` | The laptop is on eduroam, or the Pi has not joined the hotspot | Put the laptop on the hotspot. Count the devices on the hotspot screen: if the Pi never shows up, the Wi-Fi name or password on the card is wrong (often the apostrophe), so flash again |
 | Worked before, now `Could not resolve hostname miko.local`, and the hotspot shows only the laptop | The Pi dropped off (restart, power blip) and an iPhone hides its hotspot when nothing is connected, so the Pi can't find it again | Open **Settings > Personal Hotspot** on the iPhone and keep that screen open, then unplug the Pi and plug it back in. Wait 1 to 2 minutes |
 | `Connection refused` | The Pi is still starting | Wait a minute and try again |
-| `REMOTE HOST IDENTIFICATION HAS CHANGED` | The card was flashed again, so the Pi has a new key | `ssh-keygen -R miko.local`, then ssh again |
+| `REMOTE HOST IDENTIFICATION HAS CHANGED` (with "someone could be eavesdropping") | The card was flashed again, so the Pi has a new key. The laptop still remembers the old one. Not an attack | `ssh-keygen -R miko.local`, then ssh again and type `yes` |
+| Red light on, green never blinks, the Pi never joins the hotspot | The Pi doesn't start. Most often the SD card got damaged when the power was pulled while the Pi was writing | Reseat the SD card (power off), use the official 5 V 3 A supply, unplug the camera, HDMI and USB, wait 30 seconds. Still nothing: power on **without** the card. Green blinks in a pattern = the card is the problem, flash it again (step 2), then do steps 4 to 6 again. Still no green at all = the Pi's start-up chip is stuck: in Imager choose Misc utility images > Bootloader (Pi 4 family) > SD card boot, write it to the card, start the Pi with it once (green blinks fast when done), then flash Raspberry Pi OS again |
 | "See http://rptl.io/newuser" and every password is refused | The Pi has no user: the User page in Imager was skipped | Flash again and fill in the User page |
 | No camera listed | Ribbon the wrong way round or not in far enough | Power off, reseat both ends as in step 3 |
 | `No module named 'flask'` | Step 4.5 was skipped | `sudo apt install -y python3-flask python3-picamera2` |
