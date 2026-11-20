@@ -1,0 +1,14 @@
+/* components.css
+   loaded on every page. the pieces you use on more than one page.
+   in figma these are your components (the purple diamond): a card, a button, a stat.
+   make one class per component here, with the numbers from figma */
+
+
+/* a plain box so you can see where everything sits.
+   replace it with your own, for example .card or .button */
+
+.box {
+    padding: var(--space);
+    background: var(--color-box);
+    border: 1px dashed var(--color-line);
+}

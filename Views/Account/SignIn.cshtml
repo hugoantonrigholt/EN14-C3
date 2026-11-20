@@ -1,0 +1,21 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Sign in";
+
+    // this page has no sidebar, so it uses the other frame: Shared/_AccountLayout.cshtml
+    Layout = "_AccountLayout";
+}
+
+@* links this page's own css file, wwwroot/css/pages/account.css (Sign up uses it too) *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/account.css">
+}
+
+<h1>Sign in</h1>
+
+@* to build, from the Sign in frame in Figma:
+   - a form: <form method="post">
+   - Username and Password fields. the inputs need name="Username" and name="Password",
+     the same names as SignInViewModel in ViewModels/AccountViewModels.cs, then the controller gets what was typed
+   - the Sign in button
+   - a link to Sign up: /Account/SignUp *@

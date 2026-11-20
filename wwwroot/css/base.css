@@ -1,0 +1,29 @@
+/* base.css
+   loaded on every page, first. your figma colours and sizes, and the basics.
+   a rule like .row { ... } (in the other files) styles every tag that has class="row" */
+
+
+/* ---------- variables ----------
+   your figma colours and sizes go here. use them anywhere with var(--name).
+   change one here and everything that uses it changes too */
+
+:root {
+    --color-background: #f4f4f4;
+    --color-box: #ffffff;
+    --color-line: #cccccc;
+    --space: 16px;
+}
+
+
+/* ---------- basics ---------- */
+
+/* makes padding stay inside a box's width, the same way figma does it */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0; /* browsers add a white edge around the page, this removes it */
+    font-family: system-ui, sans-serif;
+    background: var(--color-background);
+}

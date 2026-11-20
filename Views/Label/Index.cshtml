@@ -1,0 +1,18 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Label";
+}
+
+@* links this page's own css file, wwwroot/css/pages/label.css *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/label.css">
+}
+
+<h1>Label</h1>
+
+@* to build, from the Label frame in Figma:
+   - the photo with the cells marked on it
+   - the selected cell
+   - the choice Live / Dead / Unsure
+   - the Save correction button
+   - thumbnails of the cells *@

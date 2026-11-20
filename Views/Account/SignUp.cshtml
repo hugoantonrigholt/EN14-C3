@@ -1,0 +1,22 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Sign up";
+
+    // this page has no sidebar, so it uses the other frame: Shared/_AccountLayout.cshtml
+    Layout = "_AccountLayout";
+}
+
+@* links this page's own css file, wwwroot/css/pages/account.css (Sign in uses it too) *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/account.css">
+}
+
+<h1>Sign up</h1>
+
+@* to build, from the Sign up frame in Figma:
+   - a form: <form method="post">
+   - Username, Password and Repeat password fields. the inputs need name="Username", name="Password"
+     and name="RepeatPassword", the same names as SignUpViewModel in ViewModels/AccountViewModels.cs.
+     the rules are in there too: username 3 to 50 characters, password at least 8
+   - the Sign up button
+   - a link to Sign in: /Account/SignIn *@

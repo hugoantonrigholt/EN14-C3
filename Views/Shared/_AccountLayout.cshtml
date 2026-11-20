@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Miko</title>
+
+    <link rel="stylesheet" href="~/css/base.css">
+    <link rel="stylesheet" href="~/css/layout.css">
+    <link rel="stylesheet" href="~/css/components.css">
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    @* the frame for Sign in and Sign up: the same as _Layout.cshtml but without the sidebar.
+       .account puts the page in the middle of the screen *@
+    <main class="account stack">
+        @RenderBody()
+    </main>
+
+</body>
+</html>

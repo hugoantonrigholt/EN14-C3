@@ -1,0 +1,19 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Scan";
+}
+
+@* links this page's own css file, wwwroot/css/pages/scan.css *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/scan.css">
+}
+
+<h1>Scan</h1>
+
+@* to build, from the Scan frame in Figma:
+   - the live view from the microscope
+     (it's one img tag, see pi-camera/README.md: <img src="http://miko.local:8000/stream">)
+   - sharpness bar
+   - sample info
+   - the Take a photo button
+   - thumbnails of the photos taken *@

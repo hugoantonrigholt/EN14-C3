@@ -1,0 +1,18 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Train";
+}
+
+@* links this page's own css file, wwwroot/css/pages/train.css *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/train.css">
+}
+
+<h1>Train</h1>
+
+@* to build, from the Train frame in Figma:
+   - how many cells are labelled
+   - accuracy
+   - the Start training button
+   - while it trains: the button faded and the progress in %
+   - the "Where it went wrong" cards *@

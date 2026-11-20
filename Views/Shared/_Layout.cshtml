@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Miko</title>
+
+    @* the css every page uses. ~/ means the wwwroot folder. order matters: base first *@
+    <link rel="stylesheet" href="~/css/base.css">
+    <link rel="stylesheet" href="~/css/layout.css">
+    <link rel="stylesheet" href="~/css/components.css">
+
+    @* the page's own css file goes here (the @section Styles at the top of each page) *@
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+    @* this file is the frame around every page: the sidebar and main.
+       the page you open (for example Views/Scan/Index.cshtml) gets put where @RenderBody() is *@
+
+    <div class="app">
+
+        <aside class="sidebar stack">
+            <p>Miko</p>
+
+            <nav class="stack">
+                <a href="/">Dashboard</a>
+                <a href="/Scan">Scan</a>
+                <a href="/Label">Label</a>
+                <a href="/Train">Train</a>
+                <a href="/Measure">Measure</a>
+            </nav>
+
+            <a href="/Account/SignIn">Sign in</a>
+        </aside>
+
+        <main class="main stack">
+            @RenderBody()
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Dashboard";
+}
+
+@* links this page's own css file, wwwroot/css/pages/home.css *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/home.css">
+}
+
+<h1>Dashboard</h1>
+
+@* to build, from the Dashboard frame in Figma:
+   - stat cards
+   - charts
+   - dataset cards
+   - the buttons Add photos, Label and Train *@
+
+@* example of how .row and .stack work. delete it when you start building *@
+<div class="row">
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box fill">box with .fill</div>
+</div>
+<div class="stack">
+    <div class="box">box</div>
+    <div class="box">box</div>
+</div>
