@@ -1,14 +1,153 @@
 /* components.css
-   loaded on every page. the pieces you use on more than one page.
-   in figma these are your components (the purple diamond): a card, a button, a stat.
-   make one class per component here, with the numbers from figma */
+   loaded on every page. the pieces you use on more than one page,
+   in figma these are your components (the purple diamond).
+   each one has the html to copy above it, BLOCKS.md shows them all.
+   to make them look like your figma: change the variables in base.css first, then the numbers here */
 
 
-/* a plain box so you can see where everything sits.
-   replace it with your own, for example .card or .button */
+/* ---------- box ----------
+   a dashed stand-in so you can see where things sit while you build. delete it after
+   
+   <div class="box">...</div> */
 
 .box {
     padding: var(--space);
     background: var(--color-box);
     border: 1px dashed var(--color-line);
+}
+
+
+/* ---------- card ----------
+   a white box with round corners, what's inside sits under each other
+   
+   <div class="card"> 
+        <h2>Sample A</h2> 
+        <p>Taken 20 Nov</p> 
+    </div> 
+*/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+    padding: var(--space);
+    background: var(--color-box);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+}
+
+
+/* ---------- stat ----------
+   a big number with a label under it, put it in a card
+   
+   <p class="stat-number">92%</p>
+   <p class="stat-label">Accuracy</p> 
+*/
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: var(--color-muted);
+}
+
+
+/* ---------- button ----------
+   <button class="button">Take a photo</button>
+   <button class="button button-secondary">Cancel</button>
+   
+   a link to another page that looks like a button
+   <a class="button" href="/Label">Label</a>   
+*/
+
+.button {
+    display: inline-block; /* a link only takes padding like this, if you want to know more it's best to look up visual examples */
+    width: fit-content; /* hugs the content inside of the button. Without it a button in a .stack gets as wide as the stack */
+    padding: 10px 16px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: var(--color-primary);
+    color: white;
+    font: inherit; /* buttons don't take the page font by themselves, inherit means it will get the font passed down from its boxes */
+    text-decoration: none; /* remove the underline on a link */
+    cursor: pointer; /* the icon your cursor uses when you hover on it */
+}
+
+.button-secondary {
+    background: var(--color-box);
+    color: var(--color-primary);
+}
+
+/* <button class="button" disabled> : disabled buttons do not work. They look faded and can't be clicked, like Start training while it is already training */
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* ---------- bar ----------
+   partly filled: sharpness, training progress, percentages.
+   the width is the one thing written on the tag, it comes from the data
+   
+   <div class="bar"> 
+   <div class="bar-fill" style="width: 72%"></div> 
+   </div> 
+*/
+
+.bar {
+    height: 8px;
+    background: var(--color-line);
+    border-radius: var(--radius);
+    overflow: hidden; /* keeps the fill inside the round corners */
+}
+
+.bar-fill {
+    height: 100%; /* an empty box doesn't necessarily have a height, or width. Since a bar usually has no content, think of text or images, we need to set it's size ourselves */
+    background: var(--color-primary);
+}
+
+
+/* ---------- field ----------
+   a label with an input or a dropdown under it, for forms
+   
+   <label class="field"> Username <input name="Username"> </label> */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+}
+
+/* .field input = every input inside a .field */
+.field input,
+.field select {
+    padding: 10px 12px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    font: inherit;
+}
+
+
+/* ---------- thumbnails ----------
+   small square photos next to each other, they go to the next line when it's full
+   
+   <div class="thumbnails">
+        <img src="..." alt="photo 1"> 
+        <img src="..." alt="photo 2"> 
+   </div> 
+*/
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+}
+
+.thumbnails img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* fills the square without stretching the photo */
+    border-radius: var(--radius);
 }

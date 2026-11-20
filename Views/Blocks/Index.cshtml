@@ -1,0 +1,274 @@
+@{
+    // the text in the browser tab
+    ViewData["Title"] = "Blocks";
+}
+
+@* links this page's own css file, wwwroot/css/pages/blocks.css *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/blocks.css">
+}
+
+@* this page shows every block and component of the library, BLOCKS.md explains them.
+   it is not part of the app, it's here to look at and copy from.
+   to copy an example: take what is under its grey note. the <section class="example"> around it is only for this page *@
+
+<h1>Blocks and components</h1>
+<p>Every piece of the library. To copy one, open <code>Views/Blocks/Index.cshtml</code> and find its title. <code>BLOCKS.md</code> explains them.</p>
+
+
+<h2 class="part-title">Blocks: rows and columns</h2>
+
+@* ---------- row ---------- *@
+<section class="example">
+    <h3>Row</h3>
+    <p class="example-note">.row: next to each other, each box as wide as what is in it</p>
+
+    <div class="row">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+    </div>
+</section>
+
+@* ---------- row with fill ---------- *@
+<section class="example">
+    <h3>Row with one box that fills</h3>
+    <p class="example-note">.row, the last box has .fill: it takes the space that is left</p>
+
+    <div class="row">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box fill">C</div>
+    </div>
+</section>
+
+@* ---------- two columns ---------- *@
+<section class="example">
+    <h3>Two columns, the same width</h3>
+    <p class="example-note">.row, both boxes have .fill: half each</p>
+
+    <div class="row">
+        <div class="box fill">left half</div>
+        <div class="box fill">right half</div>
+    </div>
+</section>
+
+@* ---------- three columns ---------- *@
+<section class="example">
+    <h3>Three columns, the same width</h3>
+    <p class="example-note">.row, all three have .fill: a third each</p>
+
+    <div class="row">
+        <div class="box fill">one</div>
+        <div class="box fill">two</div>
+        <div class="box fill">three</div>
+    </div>
+</section>
+
+@* ---------- stack ---------- *@
+<section class="example">
+    <h3>Stack</h3>
+    <p class="example-note">.stack: under each other</p>
+
+    <div class="stack">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+    </div>
+</section>
+
+@* ---------- big box with a column next to it ---------- *@
+<section class="example">
+    <h3>A big box with a column next to it</h3>
+    <p class="example-note">.row with a .fill box and a .stack inside it</p>
+
+    <div class="row">
+        <div class="box fill">the big box</div>
+
+        <div class="stack">
+            <div class="box">small 1</div>
+            <div class="box">small 2</div>
+            <div class="box">small 3</div>
+        </div>
+    </div>
+</section>
+
+@* ---------- fixed column and the rest ---------- *@
+<section class="example">
+    <h3>A fixed column and the rest</h3>
+    <p class="example-note">.row, the left box has its own class with width: 240px (.side-panel in blocks.css), the right one .fill</p>
+
+    <div class="row">
+        <div class="box side-panel">240px wide</div>
+        <div class="box fill">the rest</div>
+    </div>
+</section>
+
+@* ---------- columns of stacks ---------- *@
+<section class="example">
+    <h3>Columns with boxes under each other</h3>
+    <p class="example-note">.row with three .stack.fill inside it</p>
+
+    <div class="row">
+        <div class="stack fill">
+            <div class="box">1 A</div>
+            <div class="box">1 B</div>
+        </div>
+        <div class="stack fill">
+            <div class="box">2 A</div>
+            <div class="box">2 B</div>
+        </div>
+        <div class="stack fill">
+            <div class="box">3 A</div>
+            <div class="box">3 B</div>
+        </div>
+    </div>
+</section>
+
+@* ---------- title left, button right ---------- *@
+<section class="example">
+    <h3>A title on the left, a button on the right</h3>
+    <p class="example-note">a .card with a .row.middle in it: the title has .fill, so it pushes the button to the right. .middle lines them up in the middle</p>
+
+    <div class="card">
+        <div class="row middle">
+            <h3 class="fill">Datasets</h3>
+            <a class="button" href="/Scan">Add photos</a>
+        </div>
+        <p>4 datasets, 340 cells labelled</p>
+    </div>
+</section>
+
+@* ---------- form ---------- *@
+<section class="example">
+    <h3>A form</h3>
+    <p class="example-note">a form with .stack: fields and a button under each other</p>
+
+    <form method="post" class="stack">
+        <label class="field">
+            Username
+            <input name="Username">
+        </label>
+
+        <label class="field">
+            Password
+            <input type="password" name="Password">
+        </label>
+
+        <button class="button">Sign in</button>
+    </form>
+</section>
+
+
+<h2 class="part-title">Components</h2>
+
+@* ---------- card ---------- *@
+<section class="example">
+    <h3>Card</h3>
+    <p class="example-note">.card: a white box with round corners, what is inside sits under each other</p>
+
+    <div class="card">
+        <h3>Sample A</h3>
+        <p>Taken 20 Nov</p>
+    </div>
+</section>
+
+@* ---------- stat ---------- *@
+<section class="example">
+    <h3>Stat</h3>
+    <p class="example-note">.stat-number and .stat-label in a .card, three .card.fill in a .row</p>
+
+    <div class="row">
+        <div class="card fill">
+            <p class="stat-number">92%</p>
+            <p class="stat-label">Accuracy</p>
+        </div>
+        <div class="card fill">
+            <p class="stat-number">340</p>
+            <p class="stat-label">Cells labelled</p>
+        </div>
+        <div class="card fill">
+            <p class="stat-number">4</p>
+            <p class="stat-label">Datasets</p>
+        </div>
+    </div>
+</section>
+
+@* ---------- button ---------- *@
+<section class="example">
+    <h3>Button</h3>
+    <p class="example-note">.button, .button.button-secondary, a disabled .button, and a link with .button</p>
+
+    <div class="row">
+        <button class="button">Take a photo</button>
+        <button class="button button-secondary">Cancel</button>
+        <button class="button" disabled>Start training</button>
+        <a class="button" href="/Label">Label</a>
+    </div>
+</section>
+
+@* ---------- bar ---------- *@
+<section class="example">
+    <h3>Bar</h3>
+    <p class="example-note">.bar with a .bar-fill inside, the width comes from the data</p>
+
+    <div class="row">
+        <div class="card fill">
+            <p>Sharpness 72%</p>
+            <div class="bar">
+                <div class="bar-fill" style="width: 72%"></div>
+            </div>
+        </div>
+        <div class="card fill">
+            <p>Training 25%</p>
+            <div class="bar">
+                <div class="bar-fill" style="width: 25%"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* ---------- field ---------- *@
+<section class="example">
+    <h3>Field</h3>
+    <p class="example-note">.field: a label with an input or a dropdown under it</p>
+
+    <div class="stack">
+        <label class="field">
+            Username
+            <input name="Username">
+        </label>
+
+        <label class="field">
+            Dataset
+            <select name="Dataset">
+                <option>Sample A</option>
+                <option>Sample B</option>
+                <option>Sample C</option>
+            </select>
+        </label>
+    </div>
+</section>
+
+@* ---------- thumbnails ---------- *@
+<section class="example">
+    <h3>Thumbnails</h3>
+    <p class="example-note">.thumbnails with img tags inside, they go to the next line when it's full. example.svg is a stand-in photo in wwwroot/images</p>
+
+    <div class="thumbnails">
+        <img src="~/images/example.svg" alt="photo 1">
+        <img src="~/images/example.svg" alt="photo 2">
+        <img src="~/images/example.svg" alt="photo 3">
+        <img src="~/images/example.svg" alt="photo 4">
+        <img src="~/images/example.svg" alt="photo 5">
+        <img src="~/images/example.svg" alt="photo 6">
+    </div>
+</section>
+
+@* ---------- box ---------- *@
+<section class="example">
+    <h3>Box</h3>
+    <p class="example-note">.box: a dashed stand-in while you build, swap it for a card or your own component later</p>
+
+    <div class="box">box</div>
+</section>

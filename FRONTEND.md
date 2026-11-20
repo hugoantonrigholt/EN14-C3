@@ -2,6 +2,8 @@
 
 The pages of Miko. There is no design in them yet, that comes from your Figma. Every file has comments that explain what it does.
 
+The pieces to build with (row, stack, card, button, bar, ...) and how padding, margin and the CSS files work are in [BLOCKS.md](BLOCKS.md).
+
 ## Run it
 
 First time on this computer? Follow [GETTING-STARTED.md](GETTING-STARTED.md) first. You don't need the database for the pages.
@@ -25,11 +27,12 @@ Views/
   Measure/Index.cshtml           Measure     localhost:5067/Measure
   Account/SignIn.cshtml          Sign in     localhost:5067/Account/SignIn
   Account/SignUp.cshtml          Sign up     localhost:5067/Account/SignUp
+  Blocks/Index.cshtml            Blocks      localhost:5067/Blocks   every block and component, not part of the app
 
 wwwroot/css/
   base.css         your Figma colours and sizes, and the basics   (every page)
   layout.css       the frame, row and stack, the phone version    (every page)
-  components.css   your Figma components: card, button, ...       (every page)
+  components.css   card, button, bar, ... see BLOCKS.md           (every page)
   pages/           one file per page, only for that page
 ```
 
@@ -61,8 +64,8 @@ HTML and CSS connect through classes: `class="row"` in a page gets its looks fro
 ## Build it
 
 1. Put your Figma colours and sizes in the variables in `base.css`.
-2. Make a class for each Figma component (card, button) in `components.css`.
-3. Open a page. The comment in it lists what to build from that Figma frame. Things next to each other go in a `.row`, things under each other in a `.stack`.
+2. Make the components in `components.css` look like your Figma, and add the ones that are missing ([BLOCKS.md](BLOCKS.md), section 5).
+3. Open a page. The comment in it lists what to build from that Figma frame. Copy the blocks and components from [BLOCKS.md](BLOCKS.md): things next to each other go in a `.row`, things under each other in a `.stack`.
 4. Something only one page has goes in that page's file in `css/pages/`.
 5. Delete the example boxes on the Dashboard when you start on it.
 

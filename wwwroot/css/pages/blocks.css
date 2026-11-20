@@ -1,0 +1,29 @@
+/* blocks.css
+   rules only for the Blocks page (Views/Blocks/Index.cshtml).
+   they only make the examples easy to read, you don't need them on your own pages */
+
+
+/* space above "Blocks" and "Components", so the two parts stand apart */
+.part-title {
+    margin-top: 32px;
+}
+
+/* one example: a line above it, its title, the grey note, then the example */
+.example {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+    padding-top: var(--space);
+    border-top: 1px solid var(--color-line);
+}
+
+/* the grey note that says which classes the example uses */
+.example-note {
+    color: var(--color-muted);
+}
+
+/* the fixed column in "a fixed column and the rest". in figma: a fixed width.
+   a size like this goes in its own class, never in style="..." */
+.side-panel {
+    width: 240px;
+}

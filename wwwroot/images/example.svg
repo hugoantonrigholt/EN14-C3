@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+    <!-- a stand-in photo with a few cells, until there are real photos -->
+    <rect width="80" height="80" fill="#e8e3f0"/>
+    <circle cx="24" cy="26" r="11" fill="#b9a8d6"/>
+    <circle cx="56" cy="22" r="8" fill="#c9bce0"/>
+    <circle cx="48" cy="54" r="13" fill="#a993cf"/>
+    <circle cx="18" cy="62" r="7" fill="#c9bce0"/>
+</svg>

@@ -11,7 +11,13 @@
     --color-background: #f4f4f4;
     --color-box: #ffffff;
     --color-line: #cccccc;
+    --color-text: #1f1f1f;
+    --color-muted: #6b6b6b; /* grey text, like the label under a number */
+    --color-primary: #2f6fed; /* the main colour: buttons and bars */
+
     --space: 16px;
+    --space-small: 8px;
+    --radius: 12px; /* the round corners */
 }
 
 
@@ -25,5 +31,12 @@
 body {
     margin: 0; /* browsers add a white edge around the page, this removes it */
     font-family: system-ui, sans-serif;
+    color: var(--color-text);
     background: var(--color-background);
+}
+
+/* browsers give these their own margin. figma has none, so it goes:
+   all space comes from padding and gap */
+h1, h2, h3, p {
+    margin: 0;
 }

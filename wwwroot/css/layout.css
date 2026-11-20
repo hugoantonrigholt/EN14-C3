@@ -52,8 +52,16 @@
     flex: 1;
 }
 
+/* "alignment: center" in figma: the boxes in a row line up in the middle, top to bottom.
+   without it they are all as tall as the tallest one */
+.middle {
+    align-items: center;
+}
+
 
 /* ---------- phone ----------
+    This can get a bit tricky, don't worry if it's too complicated or vague for now!
+    
    the rules in here only work when the screen is 800px wide or smaller.
    only write what is different from the computer version */
 
@@ -64,5 +72,6 @@
 
     .row {
         flex-direction: column; /* on a phone, rows go under each other too */
+        align-items: stretch; /* and full width again, also when the row has .middle */
     }
 }
