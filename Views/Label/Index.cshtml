@@ -8,11 +8,72 @@
     <link rel="stylesheet" href="~/css/pages/label.css">
 }
 
-<h1>Label</h1>
+<div class="welcome">
+    <h1>Label cells</h1>
+    <p>Miko has analysed this image for you. Review the cells and fix any mistakes you spot.</p>
+</div>
+<p class="tip">💡<span class="tip-label">Tip:</span> Tap a marked cell to review Miko's result. If wrong, choose the correct label.</p>
 
-@* to build, from the Label frame in Figma:
-   - the photo with the cells marked on it
-   - the selected cell
-   - the choice Live / Dead / Unsure
-   - the Save correction button
-   - thumbnails of the cells *@
+<div class="row">
+    <div class="card fill">
+        <img class="photo" src="~/images/sample.png" alt="Photo of the sample with the cells Miko found">
+    </div>
+
+    <div class="stack label-side">
+        <div class="card stack">
+            <h2>Miko's labels</h2>
+            <div class="label-counts">
+                <div class="light-box label-count">
+                    <span class="dot dot-live"></span>
+                    <span class="fill">Live</span>
+                    <b>3</b>
+                </div>
+                <div class="light-box label-count">
+                    <span class="dot dot-dead"></span>
+                    <span class="fill">Dead</span>
+                    <b>4</b>
+                </div>
+                <div class="light-box label-count">
+                    <span class="dot dot-unsure"></span>
+                    <span class="fill">Unsure</span>
+                    <b>1</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="card stack">
+            <h2>Selected cell</h2>
+            <div class="selected-top">
+                <div class="cell-preview"></div>
+                <div class="miko-says">
+                    <p>Miko says</p>
+                    <span class="badge">Live</span>
+                </div>
+            </div>
+            <p>Change the label (if needed):</p>
+            <div class="choices">
+                <button class="button button-small"><span class="dot dot-live"></span> Live</button>
+                <button class="button button-small"><span class="dot dot-dead"></span> Dead</button>
+                <button class="button button-small"><span class="dot dot-unsure"></span> Unsure</button>
+            </div>
+            <button class="button button-primary button-small save">Save correction</button>
+        </div>
+    </div>
+</div>
+
+<div class="card stack">
+    <div class="cells-header">
+        <h2>Selected cells</h2>
+        <p><span class="changed">⇄</span> = label changed</p>
+    </div>
+    <div class="cells">
+        <div class="cell cell-live"></div>
+        <div class="cell cell-unsure"></div>
+        <div class="cell cell-dead"><span class="changed">⇄</span></div>
+        <div class="cell cell-dead"></div>
+        <div class="cell cell-dead"></div>
+        <div class="cell cell-live"></div>
+        <div class="cell cell-dead"></div>
+        <div class="cell cell-live"><span class="changed">⇄</span></div>
+    </div>
+</div>

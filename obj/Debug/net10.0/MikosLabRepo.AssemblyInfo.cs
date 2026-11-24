@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mikos_Lab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+618bd0367297e35eea8e7e7f014994935d0a03cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1de1b234f3f97a9b670f3033213ce2253f0429bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mikos_Lab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mikos_Lab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

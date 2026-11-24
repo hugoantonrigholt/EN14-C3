@@ -1,3 +1,138 @@
 /* label.css
    rules only for the Label page (Views/Label/Index.cshtml), that page links this file.
    if you need the same thing on another page, put it in components.css instead */
+
+.photo {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.label-side {
+    width: 340px;
+}
+
+.label-side p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.dot-live { background: var(--color-primary); }
+.dot-dead { background: var(--color-dead); }
+.dot-unsure { background: var(--color-unsure); }
+
+.label-counts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+}
+
+.selected-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cell-preview {
+    width: 90px;
+    height: 70px;
+    background: var(--color-box-light);
+    border-radius: 12px;
+}
+
+.miko-says {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.badge {
+    padding: 2px 12px;
+    background: var(--color-primary);
+    color: var(--color-text-primary);
+    border-radius: 18px;
+    font-size: 14px;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.choices .button {
+    background: var(--color-box-light);
+    border: 1px solid var(--color-line);
+}
+
+.save {
+    width: 100%;
+    justify-content: center;
+}
+
+.cells-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cells-header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.cells {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cell {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: var(--color-box-light);
+    border: 3px solid;
+    border-radius: 12px;
+}
+
+.cell-live { border-color: var(--color-primary); }
+.cell-dead { border-color: var(--color-dead); }
+.cell-unsure { border-color: var(--color-unsure); }
+
+.changed {
+    display: inline-block;
+    padding: 0 4px;
+    background: var(--color-sidebar);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.cell .changed {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+@media (max-width: 800px) {
+    .label-side {
+        width: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

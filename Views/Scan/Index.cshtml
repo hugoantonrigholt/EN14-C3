@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="~/css/pages/scan.css">
 }
 
-<h1>Scan</h1>
 
 @* to build, from the Scan frame in Figma:
    - the live view from the microscope
@@ -17,3 +16,47 @@
    - sample info
    - the Take a photo button
    - thumbnails of the photos taken *@
+
+<div class="welcome">
+    <h1>Scan your sample!</h1>
+    <p>Place your sample under Miko's lens, bring it into focus, and snap a photo of your discovery.</p>
+</div>
+<p class="tip">💡<span class="tip-label">Tip:</span> Turn the focus knob slowly until the bar turns green, then press Take Photo.</p>
+
+<div class="row">
+    <div class="card fill">
+        <div class="live">
+            <span class="live-badge">● LIVE</span>
+            <img src="http://miko.local:8000/stream" alt="Live view from the microscope">
+        </div>
+    </div>
+
+    <div class="stack scan-side">
+        <div class="card stack">
+            <h2>Sharpness</h2>
+            <div class="bar">
+                <div class="bar-fill bar-live" style="width: 80%"></div>
+            </div>
+        </div>
+
+        <button class="button button-primary"><img class="icon" src="~/images/icons/scan.svg" alt=""> Take a photo</button>
+
+        <div class="card stack fill">
+            <h2>Sample info</h2>
+            <div class="info-row"><span>Name</span><b>Yeast - warm</b></div>
+            <div class="info-row"><span>Zoom</span><b>40x</b></div>
+            <div class="info-row"><span>Light</span><b>Bright</b></div>
+            <div class="info-row"><span>Date</span><b>10-11-2026</b></div>
+            <div class="info-row"><span>Dataset</span><b>2</b></div>
+        </div>
+    </div>
+</div>
+
+<div class="card stack">
+    <h2>3 photos of this sample</h2>
+    <div class="thumbs">
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+    </div>
+</div>

@@ -7,7 +7,11 @@
    your figma colours and sizes go here. use them anywhere with var(--name).
    change one here and everything that uses it changes too */
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+
 :root {
+<<<<<<< Updated upstream
     --color-background: #f4f4f4;
     --color-box: #ffffff;
     --color-line: #cccccc;
@@ -15,6 +19,21 @@
     --color-muted: #6b6b6b; /* grey text, like the label under a number */
     --color-primary: #2f6fed; /* the main colour: buttons and bars */
 
+=======
+    --color-background: #132743;
+    --color-sidebar: #051B30;
+    --color-text: #FFFFFF;
+    --color-box: #295D77;
+    --color-box-light: #428AAE;
+    --color-line: #2BFCF5;
+    --color-primary: #40D992;
+    --color-text-primary: #071529;
+    --color-tip: #5C85F6;
+    --color-dead: #E24A4A;
+    --color-unsure: #DED357;
+    --color-track: #6C8490;
+    --font: "Fredoka", sans-serif;
+>>>>>>> Stashed changes
     --space: 16px;
     --space-small: 8px;
     --radius: 12px; /* the round corners */
@@ -30,13 +49,33 @@
 
 body {
     margin: 0; /* browsers add a white edge around the page, this removes it */
+<<<<<<< Updated upstream
     font-family: system-ui, sans-serif;
     color: var(--color-text);
+=======
+    font-family: var(--font);
+>>>>>>> Stashed changes
     background: var(--color-background);
+    color: var(--color-text);
 }
 
+<<<<<<< Updated upstream
 /* browsers give these their own margin. figma has none, so it goes:
    all space comes from padding and gap */
 h1, h2, h3, p {
     margin: 0;
 }
+=======
+h1 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+>>>>>>> Stashed changes

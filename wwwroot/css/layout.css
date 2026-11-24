@@ -7,14 +7,43 @@
 
 .app {
     display: grid;
-    grid-template-columns: 200px 1fr; /* sidebar is 200px wide, 1fr = main gets the rest */
+        grid-template-columns: 260px minmax(0, 1fr); /* sidebar is 260px wide, main gets the rest */
     min-height: 100vh; /* 100vh = the full height of the screen */
 }
 
 .sidebar {
     padding: var(--space);
-    background: var(--color-box);
-    border-right: 1px solid var(--color-line);
+    background: var(--color-sidebar);
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo-name {
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-name .icon {
+    width: 56px;
+    height: 56px;
+}
+
+.logo-tagline {
+    font-size: 16px;
+}
+
+.sidebar a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .main {
@@ -67,11 +96,56 @@
 
 @media (max-width: 800px) {
     .app {
-        grid-template-columns: 1fr; /* one column, so the sidebar goes on top */
+        grid-template-columns: minmax(0, 1fr);
+    }
+    
+    .row {
+        flex-direction: column;
     }
 
+<<<<<<< Updated upstream
     .row {
         flex-direction: column; /* on a phone, rows go under each other too */
         align-items: stretch; /* and full width again, also when the row has .middle */
+=======
+    .sidebar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+>>>>>>> Stashed changes
     }
+
+    .logo-name {
+        font-size: 22px;
+    }
+
+    .logo-tagline {
+        display: none;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .sidebar nav a {
+        padding: 2px 6px;
+        border-left: 1px solid var(--color-text);
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+    .sidebar .icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .logo-name .icon {
+    width: 34px;
+    height: 34px;
+    }
+
 }

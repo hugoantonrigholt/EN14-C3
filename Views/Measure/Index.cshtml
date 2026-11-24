@@ -8,10 +8,83 @@
     <link rel="stylesheet" href="~/css/pages/measure.css">
 }
 
-<h1>Measure</h1>
+<div class="welcome">
+    <h1>See Miko's analysis</h1>
+    <p>Choose a dataset and let Miko show you the results.</p>
+</div>
+<p class="tip">💡<span class="tip-label">Tip:</span> Pick a dataset and discover what Miko found. Compare the results!</p>
 
-@* to build, from the Measure frame in Figma:
-   - choosing a dataset
-   - the percentages
-   - the bars
-   - the compare datasets part *@
+<div class="dataset-picker">
+    <button class="button button-small button-selected">Dataset 1 | Yeast - Warm</button>
+    <button class="button button-small">Dataset 2 | Yeast - Cold</button>
+</div>
+
+<div class="row">
+    <div class="card fill stack">
+        <h2>Dataset 1 | Yeast - Warm</h2>
+
+        <div class="percents">
+            <div class="light-box percent">
+                <p class="percent-number text-live">63%</p>
+                <p class="percent-label">Live | 127 cells</p>
+            </div>
+            <div class="light-box percent">
+                <p class="percent-number text-dead">25%</p>
+                <p class="percent-label">Dead | 84 cells</p>
+            </div>
+            <div class="light-box percent">
+                <p class="percent-number text-unsure">12%</p>
+                <p class="percent-label">Unsure | 32 cells</p>
+            </div>
+        </div>
+
+        <div class="label-group">
+            <div class="row">
+                <p class="fill">Live</p>
+                <p>63%</p>
+            </div>
+            <div class="bar">
+                <div class="bar-fill bar-live" style="width: 63%"></div>
+            </div>
+        </div>
+        <div class="label-group">
+            <div class="row">
+                <p class="fill">Dead</p>
+                <p>25%</p>
+            </div>
+            <div class="bar">
+                <div class="bar-fill bar-dead" style="width: 25%"></div>
+            </div>
+        </div>
+        <div class="label-group">
+            <div class="row">
+                <p class="fill">Unsure</p>
+                <p>12%</p>
+            </div>
+            <div class="bar">
+                <div class="bar-fill bar-unsure" style="width: 12%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card fill stack">
+        <h2>Compare datasets</h2>
+
+        <div class="compare">
+            <p>Dataset 1 | Yeast - Warm</p>
+            <div class="bar bar-stacked">
+                <div class="bar-live" style="width: 63%"></div>
+                <div class="bar-dead" style="width: 25%"></div>
+                <div class="bar-unsure" style="width: 12%"></div>
+            </div>
+        </div>
+        <div class="compare">
+            <p>Dataset 2 | Yeast - Cold</p>
+            <div class="bar bar-stacked">
+                <div class="bar-live" style="width: 62%"></div>
+                <div class="bar-dead" style="width: 22%"></div>
+                <div class="bar-unsure" style="width: 16%"></div>
+            </div>
+        </div>
+    </div>
+</div>

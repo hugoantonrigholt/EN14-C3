@@ -5,6 +5,7 @@
    to make them look like your figma: change the variables in base.css first, then the numbers here */
 
 
+<<<<<<< Updated upstream
 /* ---------- box ----------
    a dashed stand-in so you can see where things sit while you build. delete it after
    
@@ -151,3 +152,129 @@
     object-fit: cover; /* fills the square without stretching the photo */
     border-radius: var(--radius);
 }
+=======
+.welcome p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.tip {
+   margin: 0;
+   padding: 5px 12px;
+   background: var(--color-box);
+   border: 1px solid var(--color-line);
+   border-radius: 18px;
+   font-size: 24px;
+}
+
+.tip-label {
+   color: var(--color-tip);
+}
+
+.card {
+   padding: var(--space);
+   background: var(--color-box);
+   border: 1px solid var(--color-line);
+   border-radius: 18px;
+}
+
+.button {
+   padding: 5px 12px;
+   background: var(--color-box);
+   color: var(--color-text);
+   border: none;
+   border-radius: 18px;
+   font-family: inherit;
+   font-size: 24px;
+   text-decoration: none;
+   cursor: pointer;
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.button-primary {
+   background: var(--color-primary);
+   color: var(--color-text-primary);
+}
+
+.button-small {
+   padding: 2px 10px;
+   font-size: 16px;
+}
+
+.bar {
+   height: 19px;
+   background: var(--color-track);
+   border-radius: 18px;
+}
+
+.bar-fill {
+   height: 100%;
+   border-radius: 18px;
+}
+
+.bar-live { background: var(--color-primary); }
+.bar-dead { background: var(--color-dead); }
+.bar-unsure { background: var(--color-unsure); }
+
+.stat-label {
+   margin: 0;
+   font-size: 16px;
+}
+
+.stat-number {
+   margin: 0;
+   font-size: 32px;
+   font-weight: 700;
+}
+
+.light-box {
+   padding: 5px 12px;
+   background: var(--color-box-light);
+   border-radius: 18px;
+}
+
+.icon {
+   width: 35px;
+   height: 35px;
+   flex-shrink: 0;
+}
+
+.stat {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+}
+
+.icon-circle {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+   width: 48px;
+   height: 48px;
+   background: var(--color-box-light);
+   border-radius: 50%;
+}
+
+.button:disabled {
+   opacity: 0.6;
+   cursor: default;
+}
+
+.text-live { color: var(--color-primary); }
+.text-dead { color: var(--color-dead); }
+.text-unsure { color: var(--color-unsure); }
+
+.label-group p {
+   margin: 0;
+   font-size: 24px;
+}
+
+@media (max-width: 800px) {
+   .label-group .row {
+      flex-direction: row;
+   }
+}
+>>>>>>> Stashed changes

@@ -1,3 +1,63 @@
 /* home.css
    rules only for the Dashboard page (Views/Home/Index.cshtml), that page links this file.
    if you need the same thing on another page, put it in components.css instead */
+
+
+.dataset {
+   align-items: center;
+}
+
+.dataset p {
+   margin: 0;
+}
+
+.dataset-name {
+   font-size: 28px;
+   font-weight: 700;
+}
+
+.dataset-info {
+   font-size: 20px;
+}
+
+.dataset-date {
+   font-size: 20px;
+}
+
+.chart {
+   display: flex;
+   align-items: flex-end;
+   gap: 17px;
+}
+
+.chart-col {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 4px;
+   flex: 1;
+}
+
+.chart p {
+   margin: 0;
+   font-size: 16px;
+}
+
+.chart-bar {
+   width: 100%;
+   background: var(--color-box-light);
+   border-radius: 18px 18px 0 0;
+}
+
+@media (max-width: 800px) {
+
+    .actions,
+    .dataset {
+        flex-direction: row;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

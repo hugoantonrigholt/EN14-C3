@@ -1,3 +1,65 @@
 /* measure.css
    rules only for the Measure page (Views/Measure/Index.cshtml), that page links this file.
    if you need the same thing on another page, put it in components.css instead */
+
+
+.dataset-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.dataset-picker .button {
+    border: 1px solid var(--color-line);
+}
+
+.button-selected {
+    background: var(--color-tip);
+}
+
+.percents {
+    display: flex;
+    gap: 12px;
+}
+
+.percent {
+    flex: 1;
+    padding: 12px 8px;
+    border: 1px solid var(--color-line);
+    text-align: center;
+}
+
+.percent p {
+    margin: 0;
+}
+
+.percent-number {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.percent-label {
+    font-size: 14px;
+}
+
+.compare {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.compare p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.bar-stacked {
+    display: flex;
+    overflow: hidden;
+}
+
+@media (max-width: 800px) {
+    .dataset-picker {
+        flex-direction: column;
+    }
+}

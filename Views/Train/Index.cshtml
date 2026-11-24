@@ -8,11 +8,58 @@
     <link rel="stylesheet" href="~/css/pages/train.css">
 }
 
-<h1>Train</h1>
+<div class="welcome">
+    <h1>Teach Miko!</h1>
+    <p>Help Miko become a smarter microscope by teaching him how to recognize different cells!</p>
+</div>
+<p class="tip">💡<span class="tip-label">Tip:</span> The more cells you label, the better Miko gets. Every cell counts!</p>
 
-@* to build, from the Train frame in Figma:
-   - how many cells are labelled
-   - accuracy
-   - the Start training button
-   - while it trains: the button faded and the progress in %
-   - the "Where it went wrong" cards *@
+<div class="card row model">
+    <div class="fill">
+        <p class="model-name">Model V4 | Yeast - Warm</p>
+        <p class="model-status">Ready to train again.</p>
+    </div>
+    <button class="button button-primary"><img class="icon" src="~/images/icons/train.svg" alt=""> Start training</button>
+</div>
+
+<div class="row">
+    <div class="card fill stat">
+        <span class="icon-circle"><img class="icon" src="~/images/icons/label.svg" alt=""></span>
+        <div>
+            <p class="stat-label">Cells labelled</p>
+            <p class="stat-number">486</p>
+        </div>
+    </div>
+    <div class="card fill stat">
+        <span class="icon-circle"><img class="icon" src="~/images/icons/measure.svg" alt=""></span>
+        <div>
+            <p class="stat-label">Accuracy</p>
+            <p class="stat-number">86%</p>
+        </div>
+    </div>
+</div>
+
+<div class="card stack meaning">
+    <h2>What does this mean?</h2>
+    <p>The AI guessed right about 9 out of 10 cells. That's pretty good! 🍎 To make it even better, label more cells — especially tricky ones.</p>
+</div>
+
+<div class="card stack">
+    <h2>Where it went wrong?</h2>
+    <div class="mistakes">
+        <div class="light-box mistake">
+            <div class="mistake-img"></div>
+            <div>
+                <p>AI said: <b class="text-live">Live</b></p>
+                <p>You said: <b class="text-dead">Dead</b></p>
+            </div>
+        </div>
+        <div class="light-box mistake">
+            <div class="mistake-img"></div>
+            <div>
+                <p>AI said: <b class="text-unsure">Unsure</b></p>
+                <p>You said: <b class="text-live">Live</b></p>
+            </div>
+        </div>
+    </div>
+</div>

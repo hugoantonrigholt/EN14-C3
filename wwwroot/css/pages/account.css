@@ -1,3 +1,92 @@
 /* account.css
-   rules only for Sign in and Sign up (Views/Account/), both pages link this file.
+   rules only for Sign in, Sign up, Forgot password and Reset password (Views/Account/),
+   all four pages link this file.
    if you need the same thing on another page, put it in components.css instead */
+
+.account-body {
+    background: linear-gradient(90deg, #2B5283 0%, var(--color-background) 35%);
+}
+
+.account {
+    max-width: 420px;
+    padding-top: 48px;
+}
+
+.account-header {
+    text-align: center;
+}
+
+.account-header h1 {
+    font-size: 32px;
+}
+
+.account-header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.account-form p {
+    margin: 0;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 16px;
+}
+
+.field input {
+    padding: 10px 12px;
+    background: var(--color-box-light);
+    border: none;
+    border-radius: 12px;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.field input:focus {
+    outline: 2px solid var(--color-line);
+}
+
+.forgot {
+    align-self: flex-end;
+    color: var(--color-text);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.account-button {
+    justify-content: center;
+    background: linear-gradient(90deg, #4AB8EE 50%, #13236B 100%);
+    color: var(--color-text);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--color-text);
+}
+
+.switch {
+    text-align: center;
+    font-size: 14px;
+}
+
+.switch a {
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: none;
+}

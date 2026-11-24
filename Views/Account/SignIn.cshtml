@@ -6,16 +6,29 @@
     Layout = "_AccountLayout";
 }
 
-@* links this page's own css file, wwwroot/css/pages/account.css (Sign up uses it too) *@
+@* links this page's own css file, wwwroot/css/pages/account.css *@
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/account.css">
 }
 
-<h1>Sign in</h1>
+<div class="account-header">
+    <h1>Hello, welcome to Miko lab!</h1>
+    <p>Sign into your account to continue</p>
+</div>
 
-@* to build, from the Sign in frame in Figma:
-   - a form: <form method="post">
-   - Username and Password fields. the inputs need name="Username" and name="Password",
-     the same names as SignInViewModel in ViewModels/AccountViewModels.cs, then the controller gets what was typed
-   - the Sign in button
-   - a link to Sign up: /Account/SignUp *@
+<form method="post" class="card stack account-form">
+    <label class="field">
+        <span>Username</span>
+        <input type="text" name="Username" autocomplete="username">
+    </label>
+    <label class="field">
+        <span>Password</span>
+        <input type="password" name="Password" autocomplete="current-password">
+    </label>
+    <a class="forgot" href="/Account/ForgotPassword">Forgot password?</a>
+       @* TEMPORARY: there is no real sign in yet, so the button just goes to the Dashboard.
+       change it back to <button type="submit" class="button account-button">Sign in</button> when sign in works *@
+    <a href="/" class="button account-button">Sign in</a>
+    <p class="divider">or</p>
+    <p class="switch">Don't have an account? <a href="/Account/SignUp">Sign up</a></p>
+</form>

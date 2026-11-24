@@ -6,17 +6,34 @@
     Layout = "_AccountLayout";
 }
 
-@* links this page's own css file, wwwroot/css/pages/account.css (Sign in uses it too) *@
+@* links this page's own css file, wwwroot/css/pages/account.css *@
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/account.css">
 }
 
-<h1>Sign up</h1>
+<div class="account-header">
+    <h1>Hello, welcome to Miko lab!</h1>
+    <p>Create an account to continue</p>
+</div>
 
-@* to build, from the Sign up frame in Figma:
-   - a form: <form method="post">
-   - Username, Password and Repeat password fields. the inputs need name="Username", name="Password"
-     and name="RepeatPassword", the same names as SignUpViewModel in ViewModels/AccountViewModels.cs.
-     the rules are in there too: username 3 to 50 characters, password at least 8
-   - the Sign up button
-   - a link to Sign in: /Account/SignIn *@
+<form method="post" class="card stack account-form">
+    <label class="field">
+        <span>Email</span>
+        <input type="email" name="Email" autocomplete="email">
+    </label>
+    <label class="field">
+        <span>Username</span>
+        <input type="text" name="Username" autocomplete="username">
+    </label>
+    <label class="field">
+        <span>Password</span>
+        <input type="password" name="Password" autocomplete="new-password">
+    </label>
+    <label class="field">
+        <span>Repeat password</span>
+        <input type="password" name="RepeatPassword" autocomplete="new-password">
+    </label>
+    <button type="submit" class="button account-button">Sign up</button>
+    <p class="divider">or</p>
+    <p class="switch">Already have an account? <a href="/Account/SignIn">Sign in</a></p>
+</form>

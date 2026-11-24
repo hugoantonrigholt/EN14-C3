@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +14,7 @@
     @* the page's own css file goes here (the @section Styles at the top of each page) *@
     @await RenderSectionAsync("Styles", required: false)
 </head>
+
 <body>
 
     @* this file is the frame around every page: the sidebar and main.
@@ -21,27 +23,41 @@
     <div class="app">
 
         <aside class="sidebar stack">
-            <p>Miko</p>
+            <div class="logo">
+                <p class="logo-name">Miko Lab <img class="icon" src="~/images/icons/logo.svg" alt=""></p>
+                <p class="logo-tagline">Tiny Worlds, Big Discoveries</p>
+            </div>
 
             <nav class="stack">
-                <a href="/">Dashboard</a>
-                <a href="/Scan">Scan</a>
-                <a href="/Label">Label</a>
-                <a href="/Train">Train</a>
-                <a href="/Measure">Measure</a>
-            </nav>
+                <a href="/"><img class="icon" src="~/images/icons/home.svg" alt=""> <span
+                    class="nav-text">Home</span></a>
+                    <a href="/Scan"><img class="icon" src="~/images/icons/scan.svg" alt=""> <span
+                        class="nav-text">Scan</span></a>
+                        <a href="/Label"><img class="icon" src="~/images/icons/label.svg" alt=""> <span
+                            class="nav-text">Label</span></a>
+                            <a href="/Train"><img class="icon" src="~/images/icons/train.svg" alt=""> <span
+                                class="nav-text">Train</span></a>
+                                <a href="/Measure"><img class="icon" src="~/images/icons/measure.svg" alt=""> <span
+                                    class="nav-text">Measure</span></a>
+                                </nav>
 
+<<<<<<< Updated upstream
             <a href="/Account/SignIn">Sign in</a>
 
             @* the library page, only for building. not part of the app, take it out before the showcase *@
             <a href="/Blocks">Blocks</a>
         </aside>
+=======
+                                            <a href="/Account/SignIn"><img class="icon" src="~/images/icons/user.svg" alt=""> <span class="nav-text">Sign in</span></a>
+                            </aside>
+>>>>>>> Stashed changes
 
-        <main class="main stack">
-            @RenderBody()
-        </main>
+                            <main class="main stack">
+                                @RenderBody()
+                            </main>
 
-    </div>
+                        </div>
 
-</body>
-</html>
+                    </body>
+
+                </html>

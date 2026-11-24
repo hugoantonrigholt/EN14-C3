@@ -7,22 +7,126 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/pages/home.css">
 }
-
-<h1>Dashboard</h1>
-
 @* to build, from the Dashboard frame in Figma:
    - stat cards
    - charts
    - dataset cards
    - the buttons Add photos, Label and Train *@
 
-@* example of how .row and .stack work. delete it when you start building *@
-<div class="row">
-    <div class="box">box</div>
-    <div class="box">box</div>
-    <div class="box fill">box with .fill</div>
+<div class="welcome">
+    <h1>Welcome back, Scientist!</h1>
+    <p>Miko is ready for another adventure. Let's see what we can discover!</p>
 </div>
-<div class="stack">
-    <div class="box">box</div>
-    <div class="box">box</div>
+<p class="tip"> <span class="tip-label">💡Tip:</span> New here? Start with Scan, then Label your cells and Train the AI!
+</p>
+<div class="row actions">
+    <a href="/Scan" class="button button-primary">Add photos</a>
+    <a href="/Label" class="button">Label</a>
+    <a href="/Train" class="button">Train</a>
+</div>
+
+
+<div class="row stats">
+    <div class="card fill stat">
+        <span class="icon-circle"><img class="icon" src="~/images/icons/datasets.svg" alt=""></span>
+        <div>
+            <p class="stat-label">Datasets</p>
+            <p class="stat-number">2</p>
+        </div>
+    </div>
+    <div class="card fill stat">
+        <span class="icon-circle"><img class="icon" src="~/images/icons/photos.svg" alt=""></span>
+        <div>
+            <p class="stat-label">Photos</p>
+            <p class="stat-number">135</p>
+        </div>
+    </div>
+    <div class="card fill stat">
+        <span class="icon-circle"><img class="icon" src="~/images/icons/label.svg" alt=""></span>
+        <div>
+            <p class="stat-label">Cells labelled</p>
+            <p class="stat-number">486</p>
+        </div>
+    </div>
+    <div class="card fill stat">
+        <span class="icon-circle"><img class="icon" src="~/images/icons/trophy.svg" alt=""></span>
+        <div>
+            <p class="stat-label">Last result</p>
+            <p class="stat-number">73% live</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="card fill stack">
+        <h2>Your datasets</h2>
+        <div class="light-box row dataset">
+            <div class="fill">
+                <p class="dataset-name">Yeast - Warm</p>
+                <p class="dataset-info">Photos 58 | Cells 213</p>
+            </div>
+            <p class="dataset-date">Dec 15</p>
+        </div>
+        <div class="light-box row dataset">
+            <div class="fill">
+                <p class="dataset-name">Yeast - Cold</p>
+                <p class="dataset-info">Photos 77 | Cells 273</p>
+            </div>
+            <p class="dataset-date">Nov 24</p>
+        </div>
+    </div>
+    <div class="card fill stack">
+        <h2>Labels per group</h2>
+        <div class="label-group">
+            <div class="row">
+                <p class="fill">Live</p>
+                <p>245 cells</p>
+            </div>
+            <div class="bar">
+                <div class="bar-fill bar-live" style="width: 50%"></div>
+            </div>
+        </div>
+        <div class="label-group">
+            <div class="row">
+                <p class="fill">Dead</p>
+                <p>162 cells</p>
+            </div>
+            <div class="bar">
+                <div class="bar-fill bar-dead" style="width: 33%"></div>
+            </div>
+        </div>
+        <div class="label-group">
+            <div class="row">
+                <p class="fill">Unsure</p>
+                <p>79 cells</p>
+            </div>
+            <div class="bar">
+                <div class="bar-fill bar-unsure" style="width: 16%"></div>
+            </div>
+        </div>
+                <h2>AI getting smarter</h2>
+        <div class="chart">
+            <div class="chart-col">
+                <p>32%</p>
+                <div class="chart-bar" style="height: 32px"></div>
+                <p>V1</p>
+            </div>
+            <div class="chart-col">
+                <p>56%</p>
+                <div class="chart-bar" style="height: 56px"></div>
+                <p>V2</p>
+            </div>
+            <div class="chart-col">
+                <p>74%</p>
+                <div class="chart-bar" style="height: 74px"></div>
+                <p>V3</p>
+            </div>
+            <div class="chart-col">
+                <p>88%</p>
+                <div class="chart-bar" style="height: 88px"></div>
+                <p>V4</p>
+            </div>
+        </div>
+          
+    </div>
 </div>

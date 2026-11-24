@@ -1,3 +1,64 @@
 /* train.css
    rules only for the Train page (Views/Train/Index.cshtml), that page links this file.
    if you need the same thing on another page, put it in components.css instead */
+
+
+.model {
+    align-items: center;
+}
+
+.model p {
+    margin: 0;
+}
+
+.model-name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.model-status {
+    font-size: 16px;
+}
+
+.meaning p {
+    margin: 0;
+    font-size: 18px;
+}
+
+.mistakes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.mistake {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mistake p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.mistake-img {
+    width: 80px;
+    height: 56px;
+    background: var(--color-box);
+    border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+    .model {
+        align-items: stretch;
+    }
+
+    .model .button {
+        justify-content: center;
+    }
+
+    .mistakes {
+        flex-direction: column;
+    }
+}
