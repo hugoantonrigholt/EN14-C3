@@ -1,6 +1,6 @@
 # Setting up the Raspberry Pi for Miko's camera
 
-This guide takes the Raspberry Pi 4 and the Pi Camera V2 from the box to a live picture in the laptop's browser. It was tested on 16 Nov 2026; every problem we ran into that day is in the steps and in the table at the end.
+This guide takes the Raspberry Pi 4 and the Pi Camera V2 from the box to a live picture in the laptop's browser. It was tested on 16 and 17 Nov 2026; every problem we ran into is in the steps and in the table at the end.
 
 ## What you need
 
@@ -31,7 +31,7 @@ This wipes the card. You do not have to delete anything first: Imager overwrites
 4. Choose to customise the settings and go through **every page**:
    - Hostname: `miko`
    - **User: a username and password. Do not skip this page.** Without it the Pi has no user and refuses every password.
-   - Wi-Fi: the hotspot name exactly as the phone shows it, its password, country `NL`
+   - Wi-Fi: the hotspot name exactly as the phone shows it, its password, country `NL`. If you rename the phone later, the Pi keeps looking for the old name and you have to flash again
    - Remote access: **SSH on**, with password login
 5. Write the card. If Windows asks to format a disk while it writes or afterwards, click **Cancel**: that is the Linux part of the card.
 
@@ -92,6 +92,8 @@ python3 stream.py
 
 When it says `Running on http://...:8000`, open **http://miko.local:8000** in the laptop's browser. Stop it with `Ctrl+C`.
 
+Check the focus bar: point the camera at a plain bright area and click **Lock light**. Then point it at something with text and turn its lens (or the focus wheel) slowly one way and back. The bar should rise, peak and fall, and say "sharp, take the photo" once you are back at the peak. Click **New sample** when you point it at something else.
+
 ## 7. Start it automatically when the Pi boots (optional)
 
 Then nobody has to ssh in before using the camera: plug in the Pi, wait a minute, open the page. If your username is not `hugo`, first change `User` and the two paths in `pi/miko-camera.service`.
@@ -111,18 +113,27 @@ sudo shutdown now
 
 Wait until the green light stops blinking, then pull the power.
 
+**Never pull the power while the green light blinks.** The Pi is writing to the SD card then, and a cut can damage the card so the Pi no longer starts (red light only, no green). It happened on 17 November: the only fix was flashing the card again and doing steps 4 to 6 over. After a new flash, the laptop warns that the Pi's identity changed; see the table below.
+
 ## When something goes wrong
 
 | What you see | Cause | Fix |
 |---|---|---|
 | Imager says the SD card is read only | Lock slider on the adapter is down | Push it up, towards the contacts |
 | `Could not resolve hostname miko.local` | The laptop is on eduroam, or the Pi has not joined the hotspot | Put the laptop on the hotspot. Count the devices on the hotspot screen: if the Pi never shows up, the Wi-Fi name or password on the card is wrong (often the apostrophe), so flash again |
+| Worked before, now `Could not resolve hostname miko.local`, and the hotspot shows only the laptop | The Pi dropped off (restart, power blip) and an iPhone hides its hotspot when nothing is connected, so the Pi can't find it again | Open **Settings > Personal Hotspot** on the iPhone and keep that screen open, then unplug the Pi and plug it back in. Wait 1 to 2 minutes |
 | `Connection refused` | The Pi is still starting | Wait a minute and try again |
-| `REMOTE HOST IDENTIFICATION HAS CHANGED` | The card was flashed again, so the Pi has a new key | `ssh-keygen -R miko.local`, then ssh again |
+| `REMOTE HOST IDENTIFICATION HAS CHANGED` (with "someone could be eavesdropping") | The card was flashed again, so the Pi has a new key. The laptop still remembers the old one. Not an attack | `ssh-keygen -R miko.local`, then ssh again and type `yes` |
+| Red light on, green never blinks, the Pi never joins the hotspot | The Pi doesn't start. Most often the SD card got damaged when the power was pulled while the Pi was writing | Reseat the SD card (power off), use the official 5 V 3 A supply, unplug the camera, HDMI and USB, wait 30 seconds. Still nothing: power on **without** the card. Green blinks in a pattern = the card is the problem, flash it again (step 2), then do steps 4 to 6 again. Still no green at all = the Pi's start-up chip is stuck: in Imager choose Misc utility images > Bootloader (Pi 4 family) > SD card boot, write it to the card, start the Pi with it once (green blinks fast when done), then flash Raspberry Pi OS again |
 | "See http://rptl.io/newuser" and every password is refused | The Pi has no user: the User page in Imager was skipped | Flash again and fill in the User page |
 | No camera listed | Ribbon the wrong way round or not in far enough | Power off, reseat both ends as in step 3 |
 | `No module named 'flask'` | Step 4.5 was skipped | `sudo apt install -y python3-flask python3-picamera2` |
 | Picture is pink or purple | It is the **NoIR** camera, which has no infrared filter | Normal. Under Miko's own LED it looks right |
 | Picture is only blur | Lens is off, or the object is too close | Lens on for testing, point at something further away |
 | Stream lags | Big frames over the hotspot | In `pi/stream.py`, set `STREAM_SIZE = (820, 616)` |
+| Focus bar stays empty, `/info` says `"ok": false` | The camera stopped giving frames, or the server is still starting | Wait 10 seconds. If it stays, restart the server and check the ribbon |
+| `RuntimeError` or `FileNotFoundError` about `imx219_noir.json` at start | The tuning file isn't where Picamera2 looks | Check with `ls /usr/share/libcamera/ipa/rpi/vc4/`. Update with `sudo apt update && sudo apt full-upgrade` |
+| Lock light takes long, picture still dark | Not enough light to reach the target in one frame time, so it turns up the gain | Turn up the LED or check it's on, then lock again |
+| Bar jumps around without touching anything | Dim picture, so the camera turns up the gain and the noise looks like edges | More light, then **Lock light** |
+| `"throttled": true` in `/info` | The power supply is too weak or the Pi is too hot | Use the official 5 V 3 A supply, give the Pi air |
 | `Address already in use` | Another `stream.py` or the service is already running | `pkill -f stream.py`, or `sudo systemctl stop miko-camera` |

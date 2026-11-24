@@ -1,3 +1,6 @@
 photos/
 __pycache__/
 *.pyc
+
+# the camera lock of one pi, made by /lock
+pi/lock.json
